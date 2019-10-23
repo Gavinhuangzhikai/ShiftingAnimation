@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'ShiftingAnimation_Example' do
+  pod 'ShiftingAnimation', :path => '../'
+
+  target 'ShiftingAnimation_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
