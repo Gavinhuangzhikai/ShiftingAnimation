@@ -66,129 +66,102 @@ open class ShiftingView: UIView {
     
         if oldPoint.y < startPoint.y , oldPoint.x > startPoint.x{
             
-            if startPoint.x  ==   20 {
+            if startPoint.x  ==   self.btn.frame.size.width/2 {
             
-                if  (self.frame.size.height - 20 - startPoint.y)*(oldPoint.x  - startPoint.x) / (startPoint.y - oldPoint.y) >= self.frame.size.width - 40{
-                                  endPoint.x = self.frame.size.width - 20
-                                  endPoint.y = (self.frame.size.width - 40)*(startPoint.y - oldPoint.y) / (oldPoint.x - startPoint.x) + startPoint.y
-                              print("1111111")
-                              print(endPoint)
+                if  (self.frame.size.height - self.btn.frame.size.width/2 - startPoint.y)*(oldPoint.x  - startPoint.x) / (startPoint.y - oldPoint.y) >= self.frame.size.width - self.btn.frame.size.width{
+                                  endPoint.x = self.frame.size.width - self.btn.frame.size.width/2
+                                  endPoint.y = (self.frame.size.width - self.btn.frame.size.width)*(startPoint.y - oldPoint.y) / (oldPoint.x - startPoint.x) + startPoint.y
+
                               }else{
-                                  endPoint.y = self.frame.size.height - 20
-                                  endPoint.x = (self.frame.size.height - 20 - startPoint.y)*(oldPoint.x  - startPoint.x) / (startPoint.y - oldPoint.y) + 20
-                               print("2222222")
-                               print(endPoint)
+                                  endPoint.y = self.frame.size.height - self.btn.frame.size.width/2
+                                  endPoint.x = (self.frame.size.height - self.btn.frame.size.width/2 - startPoint.y)*(oldPoint.x  - startPoint.x) / (startPoint.y - oldPoint.y) + self.btn.frame.size.width/2
+
                 }
              
             }else{
               
-                if  (startPoint.y - oldPoint.y) * (startPoint.x - 20) /  (oldPoint.x - startPoint.x)   >= self.frame.size.height - 40{
-                                 endPoint.y =  20
-                                 endPoint.x = startPoint.x -  (self.frame.size.height - 40) *  (oldPoint.x - startPoint.x)  / (startPoint.y - oldPoint.y)
-                    print("3333333")
-                                                 print(endPoint)
+                if  (startPoint.y - oldPoint.y) * (startPoint.x - self.btn.frame.size.width/2) /  (oldPoint.x - startPoint.x)   >= self.frame.size.height - self.btn.frame.size.width{
+                                 endPoint.y =  self.btn.frame.size.width/2
+                                 endPoint.x = startPoint.x -  (self.frame.size.height - self.btn.frame.size.width) *  (oldPoint.x - startPoint.x)  / (startPoint.y - oldPoint.y)
+
                              }else{
-                                 endPoint.y =  startPoint.y -  (startPoint.y - oldPoint.y) * (startPoint.x - 20) /  (oldPoint.x - startPoint.x)
-                                 endPoint.x =  20
-                              
-                    print("444444")
-                                                           print(endPoint)
+                                 endPoint.y =  startPoint.y -  (startPoint.y - oldPoint.y) * (startPoint.x - self.btn.frame.size.width/2) /  (oldPoint.x - startPoint.x)
+                                 endPoint.x =  self.btn.frame.size.width/2
+
                 }
             }
                 
                 
         }else  if oldPoint.y > startPoint.y , oldPoint.x > startPoint.x   {
-            if startPoint.x > 20 {
+            if startPoint.x > self.btn.frame.size.width/2 {
                 
-                if  ( oldPoint.y - 20) * (startPoint.x - 20) / (oldPoint.x - startPoint.x) >= (self.frame.size.width - 40) {
-                      endPoint.x = startPoint.x - (self.frame.size.width - 40) * (oldPoint.x - startPoint.x) / (startPoint.x - 20)
-                      endPoint.y = self.frame.size.width - 20
+                if  ( oldPoint.y - self.btn.frame.size.width/2) * (startPoint.x - self.btn.frame.size.width/2) / (oldPoint.x - startPoint.x) >= (self.frame.size.width - self.btn.frame.size.width) {
+                      endPoint.x = startPoint.x - (self.frame.size.width - self.btn.frame.size.width) * (oldPoint.x - startPoint.x) / (startPoint.x - self.btn.frame.size.width/2)
+                      endPoint.y = self.frame.size.width - self.btn.frame.size.width/2
                     print("555555")
                                                                        print(endPoint)
                   }else{
-                      endPoint.x =  20
-                      endPoint.y =  20 +  ( oldPoint.y - 20) * (startPoint.x - 20) / (oldPoint.x - startPoint.x)
-                    print("666666")
-                                                                       print(endPoint)
+                      endPoint.x =  self.btn.frame.size.width/2
+                      endPoint.y =  self.btn.frame.size.width/2 +  ( oldPoint.y - self.btn.frame.size.width/2) * (startPoint.x - self.btn.frame.size.width/2) / (oldPoint.x - startPoint.x)
                   }
                 
             }else{
-                if (startPoint.y - 20) * (oldPoint.x - startPoint.x) / (oldPoint.y - startPoint.y) >= self.frame.size.width - 40 {
-                    endPoint.x = self.frame.size.width - 20
-                    endPoint.y = startPoint.y - (self.frame.size.width - 40) * (oldPoint.y - startPoint.y) / (oldPoint.x - startPoint.x)
-                    print("777777")
-                                                                                 print(endPoint)
+                if (startPoint.y - self.btn.frame.size.width/2) * (oldPoint.x - startPoint.x) / (oldPoint.y - startPoint.y) >= self.frame.size.width - self.btn.frame.size.width {
+                    endPoint.x = self.frame.size.width - self.btn.frame.size.width/2
+                    endPoint.y = startPoint.y - (self.frame.size.width - self.btn.frame.size.width) * (oldPoint.y - startPoint.y) / (oldPoint.x - startPoint.x)
                 }else{
-                    endPoint.y =  20
-                    endPoint.x =  (startPoint.y - 20) * (oldPoint.x - startPoint.x) / (oldPoint.y - startPoint.y) + startPoint.x
-                    print("888888")
-                                                                                 print(endPoint)
+                    endPoint.y =  self.btn.frame.size.width/2
+                    endPoint.x =  (startPoint.y - self.btn.frame.size.width/2) * (oldPoint.x - startPoint.x) / (oldPoint.y - startPoint.y) + startPoint.x
                 }
             }
         }else if oldPoint.y < startPoint.y , oldPoint.x < startPoint.x{
             
-            if startPoint.y == self.frame.size.height -  20 {
-                if (self.frame.size.width - 20 - startPoint.x) * (startPoint.y - oldPoint.y) / (startPoint.x - oldPoint.x )
-                   >= self.frame.size.height - 40 {
-                   endPoint.y =  20
-                   endPoint.x = startPoint.x + (self.frame.size.width - 40) * (startPoint.x - oldPoint.x) / (startPoint.y - oldPoint.y)
-                    print("999999")
-                                                                                 print(endPoint)
+            if startPoint.y == self.frame.size.height -  self.btn.frame.size.width/2 {
+                if (self.frame.size.width - self.btn.frame.size.width/2 - startPoint.x) * (startPoint.y - oldPoint.y) / (startPoint.x - oldPoint.x )
+                   >= self.frame.size.height - self.btn.frame.size.width {
+                   endPoint.y =  self.btn.frame.size.width/2
+                   endPoint.x = startPoint.x + (self.frame.size.width - self.btn.frame.size.width) * (startPoint.x - oldPoint.x) / (startPoint.y - oldPoint.y)
                  
                }else{
-                   endPoint.x =  self.frame.size.width - 20
-                   endPoint.y =  startPoint.y -   (self.frame.size.width - 20 - startPoint.x) * (startPoint.y - oldPoint.y) / (startPoint.x - oldPoint.x )
-                    print("1010101010")
-                                                                                 print(endPoint)
+                   endPoint.x =  self.frame.size.width - self.btn.frame.size.width/2
+                   endPoint.y =  startPoint.y -   (self.frame.size.width - self.btn.frame.size.width/2 - startPoint.x) * (startPoint.y - oldPoint.y) / (startPoint.x - oldPoint.x )
                 
                }
             }else{
 
-                if (self.frame.size.height - 20 - startPoint.y) * (startPoint.x - oldPoint.x) / (startPoint.y - oldPoint.y )
-                            >= self.frame.size.width - 40 {
-                            endPoint.x =  20
-                            endPoint.y =  startPoint.y +  (self.frame.size.width - 40) * (startPoint.y - oldPoint.y) / (startPoint.x - oldPoint.x)
-                          print("aaaaaaa")
-                                                                                       print(endPoint)
+                if (self.frame.size.height - self.btn.frame.size.width/2 - startPoint.y) * (startPoint.x - oldPoint.x) / (startPoint.y - oldPoint.y )
+                            >= self.frame.size.width - self.btn.frame.size.width {
+                            endPoint.x =  self.btn.frame.size.width/2
+                            endPoint.y =  startPoint.y +  (self.frame.size.width - self.btn.frame.size.width) * (startPoint.y - oldPoint.y) / (startPoint.x - oldPoint.x)
                         }else{
-                            endPoint.y =  self.frame.size.height - 20
-                            endPoint.x =  startPoint.y +   (self.frame.size.height - 20 - startPoint.y) * (startPoint.x - oldPoint.x) / (startPoint.y - oldPoint.y )
-                    print("bbbbbb")
-                                                                                 print(endPoint)
+                            endPoint.y =  self.frame.size.height - self.btn.frame.size.width/2
+                            endPoint.x =  startPoint.x -    (self.frame.size.height - self.btn.frame.size.width/2 - startPoint.y) * (startPoint.x - oldPoint.x) / (startPoint.y - oldPoint.y )
                          
                         }
                 
             }
         }else if oldPoint.y > startPoint.y , oldPoint.x < startPoint.x{
             
-            if startPoint.y > 20{
-                  if (startPoint.y - 20) * (startPoint.x - oldPoint.x) / (oldPoint.y - startPoint.y )
-                       >= self.frame.size.width - 40 {
-                    endPoint.x =  20
-                    endPoint.y =  startPoint.y  -  (self.frame.size.width - 40) * (oldPoint.y - startPoint.y) / (startPoint.x - oldPoint.x)
-                print("ccccccc")
-                                                                             print(endPoint)
+            if startPoint.y > self.btn.frame.size.width/2{
+                  if (startPoint.y - self.btn.frame.size.width/2) * (startPoint.x - oldPoint.x) / (oldPoint.y - startPoint.y )
+                       >= self.frame.size.width - self.btn.frame.size.width {
+                    endPoint.x =  self.btn.frame.size.width/2
+                    endPoint.y =  startPoint.y  -  (self.frame.size.width - self.btn.frame.size.width) * (oldPoint.y - startPoint.y) / (startPoint.x - oldPoint.x)
                      
                    }else{
-                    endPoint.y =  20
-                    endPoint.x = startPoint.x - (startPoint.y - 20) * (startPoint.x - oldPoint.x) / (oldPoint.y - startPoint.y )
-                    print("ddddddd")
-                                                                                 print(endPoint)
+                    endPoint.y =  self.btn.frame.size.width/2
+                    endPoint.x = startPoint.x - (startPoint.y - self.btn.frame.size.width/2) * (startPoint.x - oldPoint.x) / (oldPoint.y - startPoint.y )
                  }
                 
             } else{
                
-                if  (self.frame.size.width - 20 - startPoint.x) * (oldPoint.y - 20) / (startPoint.x - oldPoint.x)
-                        <= self.frame.size.width - 40 {
-                     endPoint.x =  self.frame.size.width - 20
-                     endPoint.y =   (self.frame.size.width - 20 - startPoint.x) * (oldPoint.y - 20) / (startPoint.x - oldPoint.x) + 20
-                      print("eeeeeee")
-                                                                                   print(endPoint)
+                if  (self.frame.size.width - self.btn.frame.size.width/2 - startPoint.x) * (oldPoint.y - self.btn.frame.size.width/2) / (startPoint.x - oldPoint.x)
+                        <= self.frame.size.width - self.btn.frame.size.width {
+                     endPoint.x =  self.frame.size.width - self.btn.frame.size.width/2
+                     endPoint.y =   (self.frame.size.width - self.btn.frame.size.width/2 - startPoint.x) * (oldPoint.y - self.btn.frame.size.width/2) / (startPoint.x - oldPoint.x) + self.btn.frame.size.width/2
                     }else{
-                     endPoint.x = (self.frame.size.height - 40) * (startPoint.x - oldPoint.x) / (self.frame.size.width - 20 - startPoint.x)   + startPoint.x
-                     endPoint.y = self.frame.size.height - 20
-                     print("fffff")
-                                                                                  print(endPoint)
+                     endPoint.x = (self.frame.size.height - self.btn.frame.size.width) * (startPoint.x - oldPoint.x) / (self.frame.size.width - self.btn.frame.size.width/2 - startPoint.x)   + startPoint.x
+                     endPoint.y = self.frame.size.height - self.btn.frame.size.width/2
                   }
             }
         }
